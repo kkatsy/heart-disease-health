@@ -1,0 +1,33 @@
+---
+title: "gettingData"
+author: "Katya Katsy"
+date: "12/4/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Exploration
+
+```{r}
+health_df <- read.csv("heart_disease_health_indicators.csv")
+head(health_df)
+```
+```{r}
+names(health_df)
+```
+
+```{r}
+summary(health_df)
+```
+
+```{r}
+str(health_df)
+```
+
+```{r}
+colSums(is.na(health_df))
+```
+
