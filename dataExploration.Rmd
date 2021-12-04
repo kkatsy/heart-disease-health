@@ -19,6 +19,7 @@ head(health_df)
 names(health_df)
 ```
 
+
 ```{r}
 summary(health_df)
 ```
@@ -30,4 +31,22 @@ str(health_df)
 ```{r}
 colSums(is.na(health_df))
 ```
+
+```{r}
+table(health_df$HeartDiseaseorAttack)
+true_attack = nrow(health_df[health_df$HeartDiseaseorAttack,])
+false_attack = nrow(health_df[!health_df$HeartDiseaseorAttack,])
+cat("Percentage of true: ", true_attack*100/(true_attack+false_attack), "%")
+```
+
+```{r}
+# Non-boolean: age, BMI, MentHlth, GenHlth, Education, Income
+hist(health_df$Age) # 14 age categories
+hist(health_df$BMI)
+hist(health_df$MentHlth)
+hist(health_df$GenHlth)
+hist(health_df$Education)
+hist(health_df$Income)
+```
+
 
