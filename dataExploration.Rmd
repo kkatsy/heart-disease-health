@@ -49,4 +49,8 @@ hist(health_df$Education)
 hist(health_df$Income)
 ```
 
+```{r}
+# histogram + frequency tables for data
+# add as subplots of single plot
+```
 

@@ -1,0 +1,64 @@
+---
+title: "kNN"
+author: "Katya Katsy"
+date: "12/7/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+health_df <- read.csv("heart_disease_health_indicators.csv")
+health_df <- read.csv("new_data1.csv")
+head(health_df)
+```
+
+```{r}
+sample <- sample.int(n = nrow(health_df), size = floor(.8 * nrow(health_df)), replace = F)
+train <- health_df[sample, ]
+test  <- health_df[-sample, ]
+
+train_labels <- train[,1]
+test_labels <-test[,1]
+```
+
+```{r}
+library(class)
+k_10 <- knn(train, test, train_labels, k = 10)
+```
+
+```{r}
+acc_10 <- 100 * sum(test_labels == k_10)/NROW(test_labels)
+acc_10
+```
+
+```{r}
+max_accuracy <- 0
+best_k <- 1
+accuracy_list <- c()
+for (i in 1:40) {
+  k_model <- knn(train, test, train_labels, k = i)
+  accuracy <- 100 * sum(test_labels == k_model)/NROW(test_labels)
+  accuracy_list <- c(accuracy_list, accuracy)
+  if (accuracy > max_accuracy) {
+    best_k <- i
+    max_accuracy <- accuracy
+  }
+}
+
+cat("Max accuracy: ", max_accuracy, "\n")
+cat("Best K: ", best_k)
+```
+
+```{r}
+accuracy_list
+```
+
+```{r}
+k_vals <- c(1:40)
+plot(k_vals, accuracy_list)
+```
+
