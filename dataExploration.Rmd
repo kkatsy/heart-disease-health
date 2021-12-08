@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 health_df <- read.csv("heart_disease_health_indicators.csv")
+health_df <- read.csv("new_data1.csv")
 head(health_df)
 ```
 ```{r}
@@ -41,16 +42,25 @@ cat("Percentage of true: ", true_attack*100/(true_attack+false_attack), "%")
 
 ```{r}
 # Non-boolean: age, BMI, MentHlth, GenHlth, Education, Income
-hist(health_df$Age) # 14 age categories
-hist(health_df$BMI)
-hist(health_df$MentHlth)
-hist(health_df$GenHlth)
-hist(health_df$Education)
-hist(health_df$Income)
+par(mfrow=c(2,3))
+
+barplot(t(prop.table(table(health_df$Age))), ylab="Percent", xlab="Age category", col="dodgerblue3")
+
+barplot(t(prop.table(table(health_df$BMI))), ylab="Percent", xlab="BMI", col="dodgerblue3")
+
+barplot(t(prop.table(table(health_df$MentHlth))), ylab="Percent", xlab="Mental Health level", col="dodgerblue3")
+
+barplot(t(prop.table(table(health_df$GenHlth))), ylab="Percent", xlab="General Health level", col="dodgerblue3")
+
+barplot(t(prop.table(table(health_df$Education))), ylab="Percent", xlab="Education level", col="dodgerblue3")
+
+barplot(t(prop.table(table(health_df$Income))), ylab="Percent", xlab="Income category", col="dodgerblue3")
+
 ```
 
 ```{r}
 # histogram + frequency tables for data
 # add as subplots of single plot
+
 ```
 

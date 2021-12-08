@@ -33,6 +33,9 @@ k_10 <- knn(train, test, train_labels, k = 10)
 ```{r}
 acc_10 <- 100 * sum(test_labels == k_10)/NROW(test_labels)
 acc_10
+
+cat("\n Confusion matrix:")
+table(k_10, test$HeartDiseaseorAttack)
 ```
 
 ```{r}
@@ -59,6 +62,13 @@ accuracy_list
 
 ```{r}
 k_vals <- c(1:40)
-plot(k_vals, accuracy_list)
+
+plot.new()
+grid(nx = NULL, ny = NULL, lty = 1, col = "gray", lwd = 1)      
+par(new = TRUE)
+plot(k_vals, accuracy_list, xlab ="K values", ylab="Accuracy", col="dodgerblue", pch=19, main="K value vs Accuracy")
+lines(k_vals[order(k_vals)], accuracy_list[order(k_vals)], xlim=range(k_vals), ylim=range(accuracy_list), pch=16, type="l", lty=2)
 ```
+
+
 
