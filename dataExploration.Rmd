@@ -44,17 +44,30 @@ cat("Percentage of true: ", true_attack*100/(true_attack+false_attack), "%")
 # Non-boolean: age, BMI, MentHlth, GenHlth, Education, Income
 par(mfrow=c(2,3))
 
-barplot(t(prop.table(table(health_df$Age))), ylab="Percent", xlab="Age category", col="dodgerblue3")
+barplot(t(prop.table(table(health_df$HeartDiseaseorAttack))), ylab="Percent", xlab="Heart disease or attack", col="dodgerblue3")
+
+barplot(t(prop.table(table(health_df$AnyHealthcare))), ylab="Percent", xlab="Healthcare", col="dodgerblue3")
+
+barplot(t(prop.table(table(health_df$HighBP))), ylab="Percent", xlab="High blood pressure", col="dodgerblue3")
 
 barplot(t(prop.table(table(health_df$BMI))), ylab="Percent", xlab="BMI", col="dodgerblue3")
 
-barplot(t(prop.table(table(health_df$MentHlth))), ylab="Percent", xlab="Mental Health level", col="dodgerblue3")
-
-barplot(t(prop.table(table(health_df$GenHlth))), ylab="Percent", xlab="General Health level", col="dodgerblue3")
-
 barplot(t(prop.table(table(health_df$Education))), ylab="Percent", xlab="Education level", col="dodgerblue3")
 
+barplot(t(prop.table(table(health_df$HighBP))), ylab="Percent", xlab="High blood pressure", col="dodgerblue3")
+
+barplot(t(prop.table(table(health_df$HighChol))), ylab="Percent", xlab="High cholesterol", col="dodgerblue3")
+
 barplot(t(prop.table(table(health_df$Income))), ylab="Percent", xlab="Income category", col="dodgerblue3")
+
+
+barplot(t(prop.table(table(health_df$PhysActivity))), ylab="Percent", xlab="Physical activity level", col="dodgerblue3")
+
+
+barplot(t(prop.table(table(health_df$Sex))), ylab="Percent", xlab="Sex", col="dodgerblue3")
+
+
+barplot(t(prop.table(table(health_df$Smoker))), ylab="Percent", xlab="Smoker", col="dodgerblue3")
 
 ```
 

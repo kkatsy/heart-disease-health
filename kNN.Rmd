@@ -27,7 +27,7 @@ test_labels <-test[,1]
 
 ```{r}
 library(class)
-k_10 <- knn(train, test, train_labels, k = 10)
+k_10 <- knn(train, test, train_labels, k = 43)
 ```
 
 ```{r}
